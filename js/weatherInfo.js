@@ -1,8 +1,9 @@
 let request = require('request');
+var secret = require('../util/secret')
 
 var weatherInfo = function(req,res){
 	var city = req.body.city;
-	let apiKey = 'ce5bb3c4e2a021672796f3cd338a8348';
+	let apiKey = secret.API_KEY;
 	let url = `http://api.openweathermap.org/data/2.5/weather?q=${city}&appid=${apiKey}`
 	request(url,(err,response,body)=>{
 		if(err)
