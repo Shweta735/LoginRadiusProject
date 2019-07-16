@@ -13,4 +13,4 @@ app.get('/',(req,res)=>{
 })
 app.post('/weather',weatherInfo)
 
-app.listen(3000)
+app.listen(process.env.PORT || 4000)
