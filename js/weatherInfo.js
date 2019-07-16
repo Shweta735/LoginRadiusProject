@@ -17,8 +17,8 @@ var weatherInfo = function(req,res){
 				var minTemp = body.main.temp_min - 273.15;// converting to celsius
 				var pressure = body.main.pressure;
 				var humidity = body.main.humidity;
-				var sunriseTime = moment.unix(body.sys.sunrise).format('hh:mm:ss a');
-				var sunsetTime =  moment.unix(body.sys.sunset).format('hh:mm:ss a');
+				var sunriseTime = moment.unix(body.sys.sunrise).format('HH:mm:ssZ a');
+				var sunsetTime =  moment.unix(body.sys.sunset).format('hh:mm:ssZ a');
 				var weatherObject = {currentTemp: currentTemp,weatherType : weatherType,maxTemp:maxTemp,minTemp: minTemp, pressure : pressure, humidity:humidity,city: city,sunriseTime : sunriseTime,sunsetTime : sunsetTime}
 				res.render('weatherInfo',{weatherObject : weatherObject})
 			}else{
