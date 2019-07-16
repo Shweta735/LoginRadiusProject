@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title>Weather Information</title>
+	<style>
+         body{
+            background-color: #ADD8E6;
+            font-family: sans-serif;
+        }
+		h1 {
+        font-size: 35px;
+        font-weight: 300;
+        text-align: center;
+        }
+        h3{
+        	font-size: 27px;
+        	font-weight: 200;
+        	text-align: center;
+        }
+	</style>
+</head>
+<body>
+<br/>
+<h1 style="text-align: center;">The weather information for <%= weatherObject.city %> is as below : </h1>
+<br/>
+<h3>Current Temperature(in Celsius) : <%= weatherObject.currentTemp %></h3>
+<h3>Weather Type : <%= weatherObject.weatherType %></h3>
+<h3>Maximum Temperature(in Celsius) : <%= weatherObject.maxTemp %></h3>
+<h3>Minimum Temperature(in Celsius) : <%= weatherObject.minTemp %></h3>
+<h3>Pressure(in hPa) : <%= weatherObject.pressure %></h3>
+<h3>Humidity % : <%= weatherObject.humidity %></h3>
+<h3>Sunrise time : <%= weatherObject.sunriseTime %></h3>
+<h3>Sunset Time : <%= weatherObject.sunsetTime %></h3>
+</body>
+</html>
