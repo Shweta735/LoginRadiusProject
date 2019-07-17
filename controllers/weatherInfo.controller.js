@@ -1,5 +1,6 @@
 let request = require('request');
-var secret = require('../util/secret')
+var secret = require('../util/secret');
+var moment = require('moment');
 
 var weatherInfo = function(req,res){
 	var city = req.body.city;
@@ -19,7 +20,9 @@ var weatherInfo = function(req,res){
 				var humidity = body.main.humidity;
 				var windSpeed = body.wind.speed;
 				var visibility = body.visibility/1000;
-				var weatherObject = {currentTemp: currentTemp,weatherType : weatherType,maxTemp:maxTemp,minTemp: minTemp, pressure : pressure, humidity:humidity,city: city,windSpeed:windSpeed,visibility:visibility}
+				var sunrise = moment.unix(body.sys.sunrise).format('h:mm:ssZ a');
+				var sunset = moment.unix(body.sys.sunset).format('h:mm:ssZ a');
+				var weatherObject = {sunset:sunset,sunrise:sunrise,currentTemp: currentTemp,weatherType : weatherType,maxTemp:maxTemp,minTemp: minTemp, pressure : pressure, humidity:humidity,city: city,windSpeed:windSpeed,visibility:visibility}
 				res.render('weatherInfo',{weatherObject : weatherObject})
 			}else{
 				res.render('error')
